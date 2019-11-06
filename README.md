@@ -5,6 +5,10 @@
 ## Build Setup
 
 ``` bash
+
+#download
+git clone https://github.com/zhuzhiqiang/vue-dynamic-component.git
+
 # install dependencies
 npm install
 
