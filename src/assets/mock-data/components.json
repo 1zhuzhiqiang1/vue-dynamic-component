@@ -2,13 +2,15 @@
   {
     "index": "0",
     "text": "测试组件",
+    "name": "test",
     "path": "src/pages/hello-world/hello-world.vue",
     "routerPath": "test"
   },
   {
     "index": "1",
     "text": "人员选择",
-    "url": "src/pages/hello-world/hello-world.vue",
+    "name": "peopleSelect",
+    "path": "src/pages/hello-world/hello-world.vue",
     "routerPath": "peopleSelect"
   }
 ]

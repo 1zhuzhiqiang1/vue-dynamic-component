@@ -1,13 +1,29 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var fs = require('fs');
+
+function resolvePath(src) {
+  return path.join(__dirname, '..', src);
+}
 
 module.exports = {
-  context: path.join(__dirname, '..', './src'),
-  entry: {
-    app: './App.vue'
-  },
+  entry: () => new Promise((resolve) => {
+    fs.readFile(resolvePath('./src/assets/mock-data/components.json'), (err, data) => {
+      if(err) {
+        console.log(err);
+      }
+      var menus = JSON.parse(data);
+      console.log(menus);
+      var entrys = {};
+      for(var i=0,len=menus.length;i<len;i++){
+        entrys[menus[i].name] = resolvePath(menus[i].path);
+      }
+      console.log(entrys);
+      resolve(entrys);
+    })
+  }),
   output: {
-    path: path.resolve(__dirname,'..', './dist'),
+    path: resolvePath('./dist'),
     publicPath: '/dist/',
     filename: '[name].js'
   },
