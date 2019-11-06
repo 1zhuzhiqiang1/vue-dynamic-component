@@ -5,7 +5,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import AsyncComponent from './components/async-component';
 import VueRouter from 'vue-router';
 import Home from './Home.vue';
-import Hello from './pages/hello-world/hello-world.vue';
 
 Vue.use(ElementUI);
 Vue.use(AsyncComponent);
