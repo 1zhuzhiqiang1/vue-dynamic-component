@@ -42,7 +42,7 @@ export default {
   methods: {
     handleMenuClick(menu) {
       //this.renderUrl = menu.url;
-      this.$router.push({path: "/app"});
+      this.$router.push({path: menu.routerPath});
     },
     getComponentsJson() {
       axios.get('src/assets/mock-data/components.json')
