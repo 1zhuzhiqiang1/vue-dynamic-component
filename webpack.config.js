@@ -61,7 +61,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|ttf|woff)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -84,7 +84,7 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'

@@ -1,20 +1,59 @@
 <template>
   <div id="app">
-    <span>App</span>
-    <!--<my-component></my-component>-->
+    <el-container>
+      <el-aside width="150px">
+        <el-menu>
+          <el-menu-item v-if="menus.length===0">无数据</el-menu-item>
+          <template v-if="menus.length>0">
+            <el-menu-item v-for="(menu, index) of menus" :index="menu.index" @click="handleMenuClick(menu)">
+              <span slot="title">{{menu.text}}</span>
+            </el-menu-item>
+          </template>
+        </el-menu>
+      </el-aside>
+      <el-container>
+        <!--<el-header>-->
+          <!--<el-row class="center">组件开发框架</el-row>-->
+        <!--</el-header>-->
+        <el-main>
+          <!--<component :is="currentComponent"></component>-->
+          <router-view></router-view>
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
+
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      menus: [],
+      renderUrl: "",
+      currentComponent: null
     }
   },
-  components: {
-    // 'my-component': httpVueLoader('http://127.0.0.1:8080/httpvueloader/my-component.vue')
+  mounted() {
+    this.getComponentsJson();
+  },
+  methods: {
+    handleMenuClick(menu) {
+      //this.renderUrl = menu.url;
+      this.$router.push({path: "/app"});
+    },
+    getComponentsJson() {
+      axios.get('src/assets/mock-data/components.json')
+        .then(res => {
+          console.log(res);
+          this.menus = res.data || [];
+        })
+        .catch(error => {
+          console.log('获取菜单数据出错', error);
+        });
+    }
   }
 }
 </script>

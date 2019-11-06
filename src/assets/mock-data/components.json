@@ -1,6 +1,12 @@
 [
   {
-    "text": "app",
-    "url": "src/App.vue"
+    "index": "0",
+    "text": "测试组件",
+    "url": "src/pages/hello-world/hello-world.vue"
+  },
+  {
+    "index": "1",
+    "text": "人员选择",
+    "url": "src/pages/hello-world/hello-world.vue"
   }
 ]
