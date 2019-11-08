@@ -16,7 +16,7 @@ module.exports = {
       console.log(menus);
       var entrys = {};
       for(var i=0,len=menus.length;i<len;i++){
-        entrys[menus[i].name] = resolvePath(menus[i].path);
+        entrys[menus[i].name] = resolvePath('src/pages/'+menus[i].path+'.vue');
       }
       console.log(entrys);
       resolve(entrys);
