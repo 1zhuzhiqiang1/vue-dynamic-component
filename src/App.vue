@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <el-container>
+   <el-container>
       <el-aside width="150px">
         <el-menu>
           <el-menu-item v-if="menus.length===0">无数据</el-menu-item>
           <template v-if="menus.length>0">
-            <el-menu-item v-for="(menu, index) of menus" :index="menu.index" @click="handleMenuClick(menu)">
+            <el-menu-item v-for="(menu, index) of menus" :key="index" :index="menu.index" @click="handleMenuClick(menu)">
               <span slot="title">{{menu.text}}</span>
             </el-menu-item>
           </template>
@@ -16,17 +16,15 @@
           <!--<el-row class="center">组件开发框架</el-row>-->
         <!--</el-header>-->
         <el-main>
-          <!--<component :is="currentComponent"></component>-->
           <router-view></router-view>
         </el-main>
       </el-container>
-    </el-container>
+</el-container>
   </div>
 </template>
 
 <script>
-  import axios from 'axios';
-
+import axios from 'axios';
 export default {
   name: 'app',
   data () {

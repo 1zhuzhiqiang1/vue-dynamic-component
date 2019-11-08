@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p @click="clickMe" class="name">Hello World</p>
+    <p @click="clickMe" class="demo1">demo1</p>
   </div>
 </template>
 
 <script>
   export default{
-    name: 'hello-world',
+    name: 'demo',
     data() {
       return {
 
@@ -21,7 +21,7 @@
 </script>
 
 <style lang="scss">
-  .name {
-    background-color: #00a680;
+  .demo1 {
+    background-color:red;
   }
 </style>
